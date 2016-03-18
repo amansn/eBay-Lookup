@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>eBay Statistics</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <!-- Google Charts script -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="appKey.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>eBay Statistics</h1>
+    <form action="" id="search-form">
+      <label id="drop-container"></label>
+      <label name="item_lookup">
+        <input type="text" placeholder="Search by item name" id="item_lookup_input">
+      </label>
+      <button type="button" id="search_btn">Search</button>
+    </form>
+    <div id="content">
+      <div id="search-info">
+        <p id="search-info-p"></p>
+        <p id="search-info-statment"></p>
+      </div>
+    </div>
+
+    <script id="dropdown-template" type="text/x-handlebars-template">
+      <label>
+        <select id="dropdown">
+          <option value="choose-one" selected disabled>Choose a category:</option>
+          {{#each Category}}
+          <option name="{{this.CategoryName}}" value="{{this.CategoryID}}">{{this.CategoryName}}</option>
+          {{/each}}
+        </select>
+      </label>
+    </script>
+
+    <div id="region-map"/>
+    <script src="charts.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
