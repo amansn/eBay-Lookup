@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>eBay Statistics</title>
+    <title>eBay Lookup</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <!-- Google Charts script -->
@@ -12,41 +12,67 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>eBay Statistics</h1>
-    <form action="" id="search-form">
-      <label id="drop-container"></label>
-      <label name="item_lookup">
-        <input type="text" placeholder="Search by item name" id="item_lookup_input">
-      </label>
-      <button type="button" id="search_btn">Search</button>
-    </form>
-    <div id="content">
-      <div id="search-info">
-        <p id="search-info-p"></p>
-        <p id="search-info-statement"></p>
+    <div id="nav">
+      <div id="left">
+        <div id="logo-ebay">
+          <h1 id="ebay-h1"><span id="letter-e">e</span><span id="letter-b">b</span><span id="letter-a">a</span><span id="letter-y">y</span></h1>
+        </div>
+        <div id="logo-lookup"><span id="lookup">LOOKUP</span></div>
+        <div id="form-div">
+          <form action="" id="search-form">
+            <label id="drop-container"></label>
+            <label name="item_lookup">
+              <input type="text" placeholder="Search by item name" id="item_lookup_input">
+            </label>
+            <button type="button" id="search_btn">Search</button>
+          </form>
+        </div>
       </div>
-      <div id="map-container">
-        <h3 id="map-h3">Where are the items located?</h3>
-        <div id="region-map" />
-      </div>
-      <div id="price-container">
-        <h3 id="price-h3">The average cost is <span id="price-span"></span>.</h3>
-        <div id="price-chart" />
+      <div id="right">
+        <div id="author-div">
+          <p id="author-p">by Aman Nagpal</p>
+        </div>
       </div>
     </div>
+    <div id="main">
+      <div id="default-content">
+        <h1 id="default-heading">Get in-depth information on eBay listings.</h1>
+        <h2>1. Select a category.</h2>
+        <h2>2. Enter an item name.</h2>
+        <h2>3. Hit search and view the results.</h2>
+      </div>
+      <div id="content">
+        <div id="search-info">
+          <p id="search-info-p"></p>
+          <p id="search-info-statement"></p>
+        </div>
+        <div id="map-container">
+          <h3 id="map-h3">Where are the items located?</h3>
+          <div id="region-map"></div>
+        </div>
+        <div id="price-container">
+          <h3 id="price-h3">The average cost is <span id="price-span"></span>.</h3>
+          <div id="price-chart"></div>
+        </div>
+        <div id="pie-container">
+          <h3 id="pie-h3">Listings by Type</h3>
+          <div id="pie-chart"></div>
+        </div>
+      </div>
 
-    <script id="dropdown-template" type="text/x-handlebars-template">
-      <label>
-        <select id="dropdown">
-          <option value="choose-one" selected disabled>Choose a category:</option>
-          {{#each Category}}
-          <option name="{{this.CategoryName}}" value="{{this.CategoryID}}">{{this.CategoryName}}</option>
-          {{/each}}
-        </select>
-      </label>
-    </script>
+      <script id="dropdown-template" type="text/x-handlebars-template">
+        <label>
+          <select id="dropdown">
+            <option value="choose-one" selected disabled>Choose a category:</option>
+            {{#each Category}}
+            <option name="{{this.CategoryName}}" value="{{this.CategoryID}}">{{this.CategoryName}}</option>
+            {{/each}}
+          </select>
+        </label>
+      </script>
 
-    <script src="charts.js" charset="utf-8"></script>
-    <script src="app.js" charset="utf-8"></script>
+      <script src="charts.js" charset="utf-8"></script>
+      <script src="app.js" charset="utf-8"></script>
+    </div>
   </body>
 </html>
