@@ -7,6 +7,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <!-- Google Charts script -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="appKey.js" charset="utf-8"></script>
     <link rel="stylesheet" href="style.css">
   </head>
@@ -22,7 +23,15 @@
     <div id="content">
       <div id="search-info">
         <p id="search-info-p"></p>
-        <p id="search-info-statment"></p>
+        <p id="search-info-statement"></p>
+      </div>
+      <div id="map-container">
+        <h3 id="map-h3">Where are the items located?</h3>
+        <div id="region-map" />
+      </div>
+      <div id="price-container">
+        <h3 id="price-h3">The average cost is <span id="price-span"></span>.</h3>
+        <div id="price-chart" />
       </div>
     </div>
 
@@ -37,7 +46,6 @@
       </label>
     </script>
 
-    <div id="region-map"/>
     <script src="charts.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
   </body>

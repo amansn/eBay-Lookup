@@ -1,13 +1,33 @@
-google.charts.load('current', {packages: ['geochart']});
+//Base code taken from Google and edited to
+google.charts.load('current', {'packages': ['geochart', 'corechart', 'bar']});
 
-function drawRegionsMap(array) {
+      function drawMarkersMap(array) {
+      var data = google.visualization.arrayToDataTable(array);
 
-        var data = google.visualization.arrayToDataTable(array);
+      var options = {
+        region: 'US',
+        resolution: 'provinces'
+      };
 
-        var options = {};
-        options['dataMode'] = 'markers';
+      document.getElementById("map-h3").style.display = "block";
+      var chart = new google.visualization.GeoChart(document.getElementById('region-map'));
+      chart.draw(data, options);
+    };
 
-        var chart = new google.visualization.GeoChart(document.getElementById('region-map'));
+    function drawChart(array) {
+      var data = google.visualization.arrayToDataTable(array);
 
-        chart.draw(data, options);
-      }
+      var view = new google.visualization.DataView(data);
+
+
+      var options = {
+        title: "Price Statistics",
+        height: 300,
+        bar: {groupWidth: "90%"},
+        legend: {position: "none"},
+        vAxis: {format: 'currency'},
+        chartArea: {width: '70%'},
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("price-chart"));
+      chart.draw(view, options);
+    }

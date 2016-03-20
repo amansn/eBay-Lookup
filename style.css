@@ -14,5 +14,22 @@ h1 {
 }
 #region-map {
   width: 50%;
-  margin: 30px auto;
+  margin: 0px auto;
+  margin-bottom: 30px;
+}
+#map-h3, #price-h3 {
+  text-align: center;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+#price-container {
+  width: 330px;
+  margin: 0 auto;
+  position: relative;
+}
+#price-chart {
+  width: 300px;
+  position: absolute;
+  left: 36px;
 }
