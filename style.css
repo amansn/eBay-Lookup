@@ -70,6 +70,9 @@ body {
   font-size: 14px;
   font-weight: 300;
 }
+#data-p {
+  font-size: 12px;
+}
 #main {
   margin: 80px 0 0 0;
   padding: 0;
@@ -83,10 +86,13 @@ body {
 #search-info {
   text-align: center;
 }
-#region-map {
+#map-container {
   width: 50%;
   margin: 0px auto;
   margin-bottom: 30px;
+}
+#region-map {
+  margin-left: 50px;
 }
 /*.row {
   background-color: red;

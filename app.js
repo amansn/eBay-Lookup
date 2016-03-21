@@ -39,7 +39,7 @@ var myKey = "&SECURITY-APPNAME=" + APP_KEY;
 var globalID = "&GLOBAL-ID=EBAY-US";
 var responseFormat = "&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD";
 
-
+var defaultContent = document.getElementById("default-content");
 var searchButton = document.getElementById("search_btn");
 searchButton.addEventListener("click", function() {
 
@@ -55,6 +55,19 @@ searchButton.addEventListener("click", function() {
   var urlFilter = "&itemFilter(0).name=SoldItemsOnly&itemFilter(0).value=true&itemFilter(1).name=LocatedIn&itemFilter(1).value=US";
   var url = baseURL + operationName + serviceVersion + myKey + responseFormat + keywordQuery + catQuery + pagination + pageNum + urlFilter;
 
+  //If input box is empty, provide a message.
+  if (keywords === "") {
+    defaultContent.innerHTML = "<h1>Please enter an item in order to search.</h1>";
+    document.getElementById("content").style.display = "none";
+    return false;
+  }
+
+  if (catValue === "choose-one") {
+    defaultContent.innerHTML = "<h1>Please select a category in order to search.</h1>";
+    document.getElementById("content").style.display = "none";
+    return false;
+  }
+
   $.ajax({
     type: "GET",
     url: url,
@@ -67,9 +80,9 @@ searchButton.addEventListener("click", function() {
     var preResults = response.findCompletedItemsResponse[0].searchResult[0].item;
 
     //Clear the default content box
-    var defaultContent = document.getElementById("default-content");
     defaultContent.innerHTML = "Getting results...just a moment...";
     document.getElementById("content").style.display = "none";
+
 
     //If there are no results, ask the user to try again.
     if (preResults === undefined) {
